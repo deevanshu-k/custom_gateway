@@ -1,0 +1,19 @@
+{
+  "name": "microservicegatewayproxy",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/deevanshu-k/custom_gateway.git"
+  },
+  "author": "Deevanshu Kushwah",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/deevanshu-k/custom_gateway/issues"
+  },
+  "homepage": "https://github.com/deevanshu-k/custom_gateway#readme"
+}
