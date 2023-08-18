@@ -4,7 +4,7 @@ let proxy = {};
 
 proxy.setupProxy = (app,routes) => {
     routes.forEach(route => {
-        app.use(route.url,createProxyMiddleware(route.proxy));
+        app.use(route.url,route.authServices,createProxyMiddleware(route.proxy));
     });
 }
 

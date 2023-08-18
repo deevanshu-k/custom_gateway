@@ -1,7 +1,9 @@
+const auth = require("../services/auth");
+
 const ROUTES = [
     {
         url: '/todos',
-        auth: false,
+        authServices: [auth.checkForTeacherAuth,auth.checkForTeacherAuth2],
         creditCheck: false,
         rateLimit: {
             windowMs: 15 * 60 * 1000,
@@ -17,7 +19,7 @@ const ROUTES = [
     },
     {
         url: '/posts',
-        auth: false,
+        authServices: [auth.checkForTeacherAuth,auth.checkForTeacherAuth2],
         creditCheck: false,
         rateLimit: {
             windowMs: 15 * 60 * 1000,
@@ -33,7 +35,7 @@ const ROUTES = [
     },
     {
         url: '/products',
-        auth: false,
+        authServices: [],
         creditCheck: false,
         rateLimit: {
             windowMs: 15 * 60 * 1000,
@@ -45,6 +47,12 @@ const ROUTES = [
             pathRewrite: {
                 [`^/free`]: '',
             },
+            onError: (err, req, res, target) => {
+                res.writeHead(500, {
+                    'Content-Type': 'text/plain',
+                  });
+                res.end('Something went wrong. And we are reporting a custom error message.');
+            }
         }
     }
 ]
