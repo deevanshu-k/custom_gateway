@@ -1,7 +1,7 @@
 
 let auth = {};
 
-auth.checkForTeacherAuth = (req,res,next) => {
+auth.checkForAuth = (req,res,next) => {
     try {
         if(true){
             console.log("Authorized!");
@@ -15,7 +15,7 @@ auth.checkForTeacherAuth = (req,res,next) => {
         res.send("Unauthorised");
     }
 }
-auth.checkForTeacherAuth2 = (req,res,next) => {
+auth.checkForAuth2 = (req,res,next) => {
     try {
         if(true){
             console.log("Authorized!2");

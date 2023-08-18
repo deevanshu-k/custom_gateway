@@ -3,12 +3,8 @@ const auth = require("../services/auth");
 const ROUTES = [
     {
         url: '/todos',
-        authServices: [auth.checkForTeacherAuth,auth.checkForTeacherAuth2],
+        authServices: [auth.checkForAuth,auth.checkForAuth2],
         creditCheck: false,
-        rateLimit: {
-            windowMs: 15 * 60 * 1000,
-            max: 5
-        },
         proxy: {
             target: "https://jsonplaceholder.typicode.com",
             changeOrigin: true,
@@ -19,12 +15,8 @@ const ROUTES = [
     },
     {
         url: '/posts',
-        authServices: [auth.checkForTeacherAuth,auth.checkForTeacherAuth2],
+        authServices: [auth.checkForAuth],
         creditCheck: false,
-        rateLimit: {
-            windowMs: 15 * 60 * 1000,
-            max: 5
-        },
         proxy: {
             target: "https://jsonplaceholder.typicode.com",
             changeOrigin: true,
@@ -34,13 +26,27 @@ const ROUTES = [
         }
     },
     {
+        url: '/static',
+        authServices: [auth.checkForAuth2],
+        creditCheck: false,
+        proxy: {
+            target: "http://127.0.0.1/",
+            changeOrigin: false,
+            pathRewrite: {
+                [`^/static`]: '/',
+            },
+            onError: (err, req, res, target) => {
+                res.writeHead(500, {
+                    'Content-Type': 'text/plain',
+                  });
+                res.end('Something went wrong. And we are reporting a custom error message.');
+            }
+        }
+    },
+    {
         url: '/products',
         authServices: [],
         creditCheck: false,
-        rateLimit: {
-            windowMs: 15 * 60 * 1000,
-            max: 5
-        },
         proxy: {
             target: "https://dummyjson.com",
             changeOrigin: true,
