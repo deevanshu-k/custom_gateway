@@ -1,10 +1,6 @@
-#### A Microservices API Gateway Built Using Express.js and Express Middleware
-----
-# Micro Gateway
-
+![Micro_Gateway-removebg-preview](https://github.com/deevanshu-k/custom_gateway/assets/70090077/6d93abe3-87a5-4e18-9c9f-502f4a4defed)
 > **INPORTANT NOTICE**
  A Microservices API Gateway Built Using Express.js and Express Middleware.
-
 Micro gateway is a simple customizable gateway server.
 
 ### Configuration
